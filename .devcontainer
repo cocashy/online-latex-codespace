@@ -1,0 +1,21 @@
+{
+  "name": "LaTeX/TeX Live Environment",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  // 開発環境でインストールしたいVS Code拡張機能
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "James-Yu.latex-workshop", // LaTeXコンパイル、プレビュー
+        "ban.spellright",          // スペルチェック
+        "mhutchie.git-graph"       // Git操作
+      ]
+    }
+  },
+  // コンテナ起動後に実行するコマンド
+  "postCreateCommand": "echo 'LaTeX environment is ready.'",
+  // ワークスペースフォルダをコンテナ内のどこにマウントするか
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "remoteUser": "root"
+}
